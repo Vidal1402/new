@@ -5,11 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minha Bio</title>
   <style>
+    /* Fonte customizada */
+    @font-face {
+  font-family: 'Pricedown';
+  src: url('fonts/pricedown.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
       background: #000;
+      font-family: Arial, sans-serif;
       color: #fff;
+    }
+
+    h1 {
+      font-family: 'Pricedown', Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 48px;
     }
 
     header {
@@ -20,7 +36,7 @@
     header button {
       background: #000;
       color: #fff;
-      border: 2px solid #ffcc00;
+      border: 2px solid #8e2de2;
       padding: 10px 20px;
       border-radius: 25px;
       font-size: 16px;
@@ -30,7 +46,7 @@
     }
 
     header button:hover {
-      background: #ffcc00;
+      background: #8e2de2;
       color: #000;
     }
 
@@ -39,6 +55,8 @@
       grid-template-columns: 1fr;
       gap: 20px;
       padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     @media(min-width: 768px) {
@@ -48,109 +66,66 @@
     }
 
     .card {
-      background: #111;
+      position: relative;
       border-radius: 12px;
       overflow: hidden;
       text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
     }
 
     .card img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 12px;
     }
 
-    .card .content {
-      padding: 15px;
-    }
-
-    .card .content h3 {
-      margin: 10px 0;
-      font-size: 18px;
-      color: #fff;
-    }
-
-    .card .content p {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .card .content a {
-      background: red;
+    .card a {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #8e2de2, #4a00e0);
       color: #fff;
       text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      border-radius: 25px;
       font-weight: bold;
-      transition: background 0.3s;
+      font-size: 14px;
+      transition: 0.3s;
     }
 
-    .card .content a:hover {
-      background: darkred;
+    .card a:hover {
+      background: linear-gradient(45deg, #a445f7, #6c00ff);
     }
   </style>
 </head>
 <body>
+  <h1>Texto de exemplo</h1>
 
   <header>
     <button>Começar agora</button>
   </header>
 
   <section class="grid">
-
     <div class="card">
       <img src="1.png" alt="Imagem 1">
-      <div class="content">
-        <h3>Título 1</h3>
-        <p>Descrição curta do card.</p>
-        <a href="#">COMPRAR</a>
-      </div>
+      <a href="#">COMPRAR</a>
     </div>
 
     <div class="card">
       <img src="2.png" alt="Imagem 2">
-      <div class="content">
-        <h3>Título 2</h3>
-        <p>Descrição curta do card.</p>
-        <a href="#">COMPRAR</a>
-      </div>
+      <a href="#">COMPRAR</a>
     </div>
 
     <div class="card">
       <img src="3.png" alt="Imagem 3">
-      <div class="content">
-        <h3>Título 3</h3>
-        <p>Descrição curta do card.</p>
-        <a href="#">SABER MAIS</a>
-      </div>
+      <a href="#">SABER MAIS</a>
     </div>
 
-    <!-- Só copiar e duplicar o bloco .card abaixo pra mais imagens -->
     <div class="card">
       <img src="4.png" alt="Imagem 4">
-      <div class="content">
-        <h3>Título 4</h3>
-        <p>Descrição curta do card.</p>
-        <a href="#">SABER MAIS</a>
-      </div>
+      <a href="#">SABER MAIS</a>
     </div>
-
-    <div class="card">
-      <img src="5.png" alt="Imagem 5">
-      <div class="content">
-        <h3>Título 5</h3>
-        <p>Descrição curta do card.</p>
-        <a href="#">COMPRAR</a>
-      </div>
-    </div>
-
   </section>
-
 </body>
 </html>
