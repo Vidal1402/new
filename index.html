@@ -7,14 +7,14 @@
 <style>
   @font-face {
     font-family: 'Clash_Regular';
-    src: url('fonts/clash.ttf') format('truetype');
+    src: url('fonts/clash.otf') format('truetype');
     font-weight: normal; font-style: normal;
     font-display: swap;
   }
 
   :root{
     --roxo:#8e2de2;
-    --roxo2:#4a00e0;
+    --roxo2:#650d9d;
     --preto:#000;
     --branco:#fff;
     --grad: linear-gradient(45deg, var(--roxo), var(--roxo2));
@@ -32,6 +32,20 @@
 
   a{text-decoration:none;color:inherit}
 
+  /* ================== BACKGROUND BLUR ================== */
+  .background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(142, 45, 226, 0.15) 0%, transparent 50%);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
   /* ================== NAVBAR ================== */
   .navbar{
     position:sticky;top:0;z-index:1000;
@@ -42,12 +56,14 @@
   }
   .navbar.scrolled{background:rgba(10,0,20,.85);box-shadow:0 6px 25px rgba(0,0,0,.4)}
   .nav-wrap{
-    max-width:1200px;margin:0 auto;padding:14px 24px;
+    max-width:1200px;margin:0 auto;
+    padding:18px 24px;
     display:flex;align-items:center;justify-content:space-between;
   }
   .logo{
     font-family:'Clash_Regular',sans-serif;font-size:28px;
-    color:var(--roxo);text-shadow:0 0 8px rgba(142,45,226,.6);
+    color:var(--roxo);
+    text-shadow: none;
   }
   .nav-links{display:flex;gap:28px;list-style:none}
   .nav-links a{
@@ -75,7 +91,8 @@
 
   @media(max-width:768px){
     .nav-links{
-      position:absolute;top:64px;left:0;right:0;
+      position:absolute;top:70px;
+      left:0;right:0;
       flex-direction:column;align-items:center;
       background:rgba(10,0,20,.95);padding:20px 0;
       display:none;
@@ -87,17 +104,45 @@
   /* ================== HERO ================== */
   .hero{
     min-height:100vh;max-width:1200px;margin:0 auto;
-    padding:80px 24px;display:flex;flex-direction:column;
+    padding:90px 15px 120px 15px;
+    display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:40px;
     position:relative;overflow:hidden;
   }
+
+  /* Imagem principal com ajustes */
+  .hero-media {
+    width: 100%;
+    max-width: 650px;
+    filter: brightness(120%) saturate(100%) drop-shadow(0 0 15px var(--roxo));
+    animation: brilhoLED 1.5s infinite alternate;
+    border-radius: 20px;
+    transition: transform .4s ease, filter .4s ease;
+  }
+
+  @keyframes brilhoLED {
+    from {
+      filter: brightness(100%) saturate(90%) drop-shadow(0 0 10px var(--roxo));
+    }
+    to {
+      filter: brightness(120%) saturate(95%) drop-shadow(0 0 25px var(--roxo));
+    }
+  }
+  
+  .hero-media:hover {
+    transform: rotateZ(-.6deg) scale(1.02);
+  }
+
   .hero-text{display:grid;gap:24px;text-align:center}
   .hero h1{
     font-family:'Clash_Regular',sans-serif;
-    font-size:clamp(48px,6vw,88px);line-height:1.05;
+    font-size:clamp(40px,6vw,70px);
+    line-height:1.2; 
     text-transform:uppercase;letter-spacing:1px;
-    background:var(--grad);-webkit-background-clip:text;color:transparent;
-    text-shadow:0 0 22px rgba(142,45,226,.6);
+    background:none;
+    -webkit-background-clip:unset;
+    color: var(--roxo2);
+    text-shadow:none;
   }
   .hero p{
     font-size:clamp(18px,2vw,22px);max-width:720px;margin:0 auto;
@@ -116,52 +161,206 @@
     transform:translateX(-100%);transition:.6s;
   }
   .btn-primary:hover::after{transform:translateX(100%)}
-  .hero-media{
-    width:100%;max-width:640px;
-    filter:drop-shadow(0 0 28px rgba(142,45,226,.6));
-    transition:transform .4s ease,filter .4s ease;
-  }
-  .hero-media:hover{transform:rotateZ(-.6deg) scale(1.02)}
+
   @media(min-width:960px){
     .hero{flex-direction:row;align-items:center;justify-content:space-between;text-align:left}
     .hero-text{text-align:left}
   }
 
+  /* ================== CARD TITLE SECTION ================== */
+  .card-title-section {
+    text-align: center;
+    margin-top: -60px; 
+    margin-bottom: 30px;
+  }
+
+  .card-title-section h2 {
+    font-family: 'Clash_Regular', sans-serif;
+    font-size: clamp(24px, 4vw, 40px);
+    line-height: 1.2;
+    text-transform: uppercase;
+    background:none;
+    -webkit-background-clip:unset;
+    color: var(--branco);
+    text-shadow: none;
+  }
+
+  .arrow-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .arrow-container svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--roxo);
+    animation: float 1.5s infinite ease-in-out;
+  }
+
+  .arrow-container svg:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .arrow-container svg:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
   /* ================== CARDS ================== */
   .grid{
-    max-width:1200px;margin:80px auto;padding:0 24px;
+    max-width:1200px;
+    margin:60px auto; 
+    padding:0 24px;
     display:grid;grid-template-columns:1fr;gap:32px;
   }
   @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
+  
+  /* Container para os cards com LED giratório */
+  .card-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 4px; /* Espaço para o LED */
+  }
+  
+  /* Anel do LED para os cards (colado no card) */
+  .card-led-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius);
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  /* Ponto do LED para os cards */
+  .card-led-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #8e2de2;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #8e2de2, 0 0 20px #8e2de2;
+    top: -6px;
+    left: -6px;
+    animation: rotateCardLED 3s linear infinite;
+  }
+  
+  /* Animação para girar o LED nos cards (colado no card) */
+  @keyframes rotateCardLED {
+    0% {
+      top: -6px;
+      left: -6px;
+    }
+    25% {
+      top: -6px;
+      left: calc(100% - 6px);
+    }
+    50% {
+      top: calc(100% - 6px);
+      left: calc(100% - 6px);
+    }
+    75% {
+      top: calc(100% - 6px);
+      left: -6px;
+    }
+    100% {
+      top: -6px;
+      left: -6px;
+    }
+  }
+  
   .card{
-    position:relative;border-radius:var(--radius);overflow:hidden;
-    background:#0c0616;box-shadow:0 8px 25px rgba(0,0,0,.45);
-    border:2px solid rgba(142,45,226,.35);
-    transform:translateY(30px);opacity:0;
-    transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease,border .3s ease;
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:#0c0616;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+    transform:translateY(30px);
+    opacity:0;
+    transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease;
+    z-index: 2;
   }
-  .card:hover{box-shadow:0 14px 40px rgba(0,0,0,.6);border-color:var(--roxo)}
-  .card img{width:100%;display:block;border-radius:var(--radius)}
+  
+  /* Efeito de LED na borda */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: var(--grad);
+    border-radius: var(--radius);
+    padding: 2px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.5;
+    transition: opacity .3s ease, filter .3s ease;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+    filter: blur(12px);
+  }
+
+  .card:hover{
+    box-shadow:0 14px 40px rgba(0,0,0,.6);
+  }
+  
+  .card img{
+    width:100%;
+    display:block;
+    border-radius:var(--radius);
+    transition: transform 0.5s ease;
+  }
+  
+  .card:hover img {
+    transform: scale(1.05);
+  }
+  
   .card a{
-    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
-    background:var(--grad);color:#fff;padding:12px 28px;border-radius:26px;
-    font-weight:700;font-size:14px;box-shadow:var(--shadow-glow);
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--grad);
+    color:#fff;
+    padding:12px 28px;
+    border-radius:26px;
+    font-weight:700;
+    font-size:14px;
+    box-shadow:var(--shadow-glow);
     transition:.3s;
+    z-index: 3;
   }
-  .card a:hover{transform:translate(-50%,-3px) scale(1.05)}
-  .card.visible{transform:translateY(0);opacity:1}
+  
+  .card a:hover{
+    transform:translate(-50%,-3px) scale(1.05);
+  }
+  
+  .card.visible{
+    transform:translateY(0);
+    opacity:1;
+  }
 </style>
 </head>
 <body>
-  <!-- NAVBAR -->
+  <div class="background-blur"></div>
+
   <nav class="navbar" id="navbar">
     <div class="nav-wrap">
       <a href="#" class="logo">Método BR</a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#instagram">Instagram</a></li>
-        <li><a href="#comprar">Comprar</a></li>
-        <li><a href="#whatsapp">Whatsapp</a></li>
-        <li><a href="#grupo">Grupo gratuito</a></li>
+        <li><a href="https://discord.gg/JUMwbbdd">Comprar</a></li>
+        <li><a href="https://wa.me/5521989880489">Whatsapp</a></li>
+        <li><a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">Grupo gratuito</a></li>
       </ul>
       <div class="menu-toggle" id="menu-toggle">
         <span></span><span></span><span></span>
@@ -169,22 +368,66 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <h1>Não é sorte,<br>é método!</h1>
       <p>Junte-se ao maior grupo de estratégias do Brasil e aprenda como transformar falhas em cassinos em lucros diários, de forma inteligente e comprovada.</p>
       <a href="#contato" class="btn-primary">Quero participar</a>
     </div>
+    
+    <!-- Imagem principal SEM LED -->
     <img src="6.png" alt="Imagem destaque" class="hero-media">
   </section>
 
-  <!-- GRID DE CARDS -->
+  <section class="card-title-section">
+    <h2>ENTRE NO NOSSO GRUPO E SAIBA MAIS</h2>
+    <div class="arrow-container">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21L0 9h7V0h10v9h7L12 21z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21L0 9h7V0h10v9h7L12 21z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21L0 9h7V0h10v9h7L12 21z"/></svg>
+    </div>
+  </section>
+
   <section class="grid">
-    <div class="card"><img src="1.png"><a href="#comprar">COMPRAR</a></div>
-    <div class="card"><img src="2.png"><a href="#comprar">COMPRAR</a></div>
-    <div class="card"><img src="3.png"><a href="#saiba">SABER MAIS</a></div>
-    <div class="card"><img src="5.png"><a href="#saiba">SABER MAIS</a></div>
+    <div class="card-container">
+      <div class="card-led-ring">
+        <div class="card-led-dot"></div>
+      </div>
+      <div class="card">
+        <img src="1.png" alt="Card 1">
+        <a href="#comprar">COMPRAR</a>
+      </div>
+    </div>
+    
+    <div class="card-container">
+      <div class="card-led-ring">
+        <div class="card-led-dot"></div>
+      </div>
+      <div class="card">
+        <img src="2.png" alt="Card 2">
+        <a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">COMPRAR</a>
+      </div>
+    </div>
+    
+    <div class="card-container">
+      <div class="card-led-ring">
+        <div class="card-led-dot"></div>
+      </div>
+      <div class="card">
+        <img src="3.png" alt="Card 3">
+        <a href="https://discord.gg/JUMwbbdd">SABER MAIS</a>
+      </div>
+    </div>
+    
+    <div class="card-container">
+      <div class="card-led-ring">
+        <div class="card-led-dot"></div>
+      </div>
+      <div class="card">
+        <img src="5.png" alt="Card 4">
+        <a href="https://wa.me/5521989880489">SABER MAIS</a>
+      </div>
+    </div>
   </section>
 
 <script>
