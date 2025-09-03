@@ -85,11 +85,23 @@
     .hero-text .btn-red:hover {
       background: darkred;
     }
+    @keyframes brilhoLED {
+  from {
+    /* No início, a luminosidade é menor */
+    filter: brightness(100%) saturate(120%) drop-shadow(0 0 10px #8e2de2);
+  }
+  to {
+    /* No final, a luminosidade é maior */
+    filter: brightness(150%) saturate(180%) drop-shadow(0 0 20px #8e2de2);
+  }
+}
 
     .hero img {
       width: 100%;
-      max-width: 450px;
+      max-width: 700px;
       height: auto;
+     filter: brightness(120%) saturate(150%) drop-shadow(0 0 15px #8e2de2);
+  animation: brilhoLED 2s infinite alternate;
     }
 
     /* Layout Desktop */
@@ -157,13 +169,124 @@
     .card a:hover {
       background: linear-gradient(45deg, #a445f7, #6c00ff);
     }
+    /* NAVBAR ESTILOS */
+.navbar {
+  background-color: #000;
+  border-bottom: 1px solid #8e2de2;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Pricedown', Arial, sans-serif;
+  font-size: 24px;
+  color: #8e2de2;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #8e2de2;
+}
+
+.cta-button {
+  background-color: transparent;
+  border: 2px solid #8e2de2;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #8e2de2;
+  color: #000;
+}
+
+/* Responsivo */
+@media(max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .cta-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+.menu-icon {
+  font-size: 24px; /* menor ícone */
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@media(max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <button>Começar agora</button>
-  </header>
-
+<!-- NAVBAR RESPONSIVA -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="#" class="logo">Método BR</a>
+    <ul class="nav-links">
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Comprar</a></li>
+      <li><a href="#">Whatsapp</a></li>
+      <li><a href="#">Grupo gratuito</a></li>
+    </ul>
+    <a href="#" class="cta-button">Comprar agora</a>
+  </div>
+</nav>
   <!-- NOVA SEÇÃO HERO -->
   <section class="hero">
     <div class="hero-text">
