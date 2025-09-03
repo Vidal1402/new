@@ -53,7 +53,7 @@
     backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(142,45,226,.35);
     transition:.3s;
-    height: 70px; /* Altura fixa para a navbar */
+    height: 70px;
     display: flex;
     align-items: center;
   }
@@ -67,25 +67,22 @@
   .logo{
     display: flex;
     align-items: center;
-    position: relative;
-    left: 10px; /* Valores negativos movem para esquerda, positivos para direita */
-    /* ou */
-    margin-left: -50px; /* Mesmo efeito com margem */
-}
+    margin-left: -50px;
+  }
   .logo-img {
-    height: 72px; /* Altura inicial da logo */
+    height: 72px;
     width: auto;
-    transition: transform 0.3s ease; /* Transição suave para o aumento */
+    transition: transform 0.3s ease;
   }
   .logo:hover .logo-img {
-    transform: scale(1.1); /* Aumenta apenas a logo no hover */
+    transform: scale(1.1);
   }
   .nav-links{
     display:flex;
     gap:28px;
     list-style:none;
     align-items:center;
-    margin: 0 auto; /* Centraliza os links de navegação */
+    margin: 0 auto;
   }
   .nav-links a{
     font-weight:600;font-size:15px;opacity:.85;transition:.3s;
@@ -101,7 +98,7 @@
   /* Botão hamburguer */
   .menu-toggle{
     display:none;flex-direction:column;gap:5px;cursor:pointer;
-    margin-left: 20px; /* Espaço entre os links e o menu hamburguer */
+    margin-left: 20px;
   }
   .menu-toggle span{
     width:26px;height:3px;background:var(--branco);border-radius:3px;
@@ -122,7 +119,7 @@
     .nav-links.open{display:flex}
     .menu-toggle{display:flex}
     .logo {
-      margin-right: 0; /* Remove a margem no mobile */
+      margin-right: 0;
     }
   }
 
@@ -251,20 +248,11 @@
   @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
   
   /* Container para os cards com LED giratório */
-  .grid{
-    max-width:1200px;
-    margin:60px auto; 
-    padding:0 24px;
-    display:grid;grid-template-columns:1fr;gap:32px;
-  }
-  @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
-  
-  /* Container para os cards com LED giratório */
   .card-container {
     position: relative;
     display: block;
     width: 100%;
-    padding: 4px; /* Espaço para o LED */
+    padding: 4px;
   }
   
   /* Anel do LED para os cards (colado no card) */
@@ -280,17 +268,17 @@
     overflow: hidden;
   }
   
-  /* Minhoca/listra de LED para os cards - REMOVIDO OS DELAYS */
+  /* Minhoca/listra de LED para os cards */
   .led-worm {
     position: absolute;
-    width: 40px; /* Comprimento da minhoca */
-    height: 6px; /* Espessura da minhoca */
+    width: 40px;
+    height: 6px;
     background: var(--grad);
     border-radius: 3px;
     box-shadow: 0 0 15px var(--roxo), 0 0 30px var(--roxo);
     top: -3px;
     left: -40px;
-    animation: rotateCardLED 6s linear infinite; /* Todas com a mesma animação */
+    animation: rotateCardLED 6s linear infinite;
   }
   
   /* Efeito de ponta na minhoca */
@@ -307,7 +295,7 @@
     box-shadow: 0 0 10px var(--roxo2), 0 0 20px var(--roxo2);
   }
   
-  /* Animação para girar o LED nos cards (colado no card) - Mais devagar */
+  /* Animação para girar o LED nos cards */
   @keyframes rotateCardLED {
     0% {
       top: -3px;
@@ -357,6 +345,9 @@
     opacity:0;
     transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   
   /* Efeito de LED na borda */
@@ -382,10 +373,19 @@
     box-shadow:0 14px 40px rgba(0,0,0,.6);
   }
   
+  .card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+  
   .card img{
     width:100%;
+    height: 100%;
+    object-fit: cover;
     display:block;
-    border-radius:var(--radius);
+    border-radius: var(--radius) var(--radius) 0 0;
     transition: transform 0.5s ease;
   }
   
@@ -393,9 +393,132 @@
     transform: scale(1.05);
   }
   
+  /* Estilo para a promoção no primeiro card */
+  .promo-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--grad);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    z-index: 3;
+    box-shadow: 0 0 15px rgba(142, 45, 226, 0.7);
+    animation: pulse 2s infinite;
+    text-align: center;
+    line-height: 1.2;
+    max-width: 180px;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(142, 45, 226, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(142, 45, 226, 0.9); }
+    100% { box-shadow: 0 0 15px rgba(142, 45, 226, 0.7); }
+  }
+  
+  /* Texto DENTRO da imagem - COM DESTAQUES DE PREÇO */
+  .image-text-inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+  }
+  
+  .image-text-inside h3 {
+    font-family: 'Clash_Regular', sans-serif;
+    font-size: 23px;
+    margin-bottom: 8px;
+    color: var(--branco);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(142, 45, 226, 0.9);
+  }
+  
+  .image-text-inside p {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    color: var(--branco);
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Preço antigo com linha */
+  .old-price {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    color: #ccc;
+    margin-bottom: 5px;
+  }
+  
+  .old-price::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--roxo), var(--roxo2));
+    transform: translateY(-50%) rotate(-5deg);
+    box-shadow: 0 0 8px var(--roxo);
+  }
+  
+  /* Novo preço com destaque */
+  .new-price {
+    font-size: 23px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 2px var(--branco), 0 0 8px var(--branco);
+    margin: 5px 0 15px 0;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  
+  .image-text-inside .btn-inside {
+    background: var(--grad);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .image-text-inside .btn-inside:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(142, 45, 226, 0.8);
+  }
+  
+  .card-content {
+    padding: 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
   .card a{
-    position:absolute;
-    bottom:18px;
+    margin-top: auto;
+    margin-bottom: 18px;
     left:50%;
     transform:translateX(-50%);
     background:var(--grad);
@@ -407,6 +530,11 @@
     box-shadow:var(--shadow-glow);
     transition:.3s;
     z-index: 3;
+    width: max-content;
+    position: relative;
+    display: block;
+    text-align: center;
+    align-self: center;
   }
   
   .card a:hover{
@@ -430,9 +558,10 @@
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="https://www.instagram.com/bmetodos">Instagram</a></li>
-        <li><a href="https://discord.gg/JUMwbbdd">Comprar</a></li>
-        <li><a href="https://wa.me/5521989880489">Whatsapp</a></li>
-        <li><a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">Grupo gratuito</a></li>
+        <li><a href="https://go.pepperpay.com.br/2nrjd">Grupo Vip</a></li>
+        <li><a href="https://discord.gg/JUMwbbdd">Discord</a></li>
+        <li><a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">Grupo Free</a></li>
+        <li><a href="https://wa.me/5521989880489">Suporte</a></li>
       </ul>
       <div class="menu-toggle" id="menu-toggle">
         <span></span><span></span><span></span>
@@ -444,7 +573,7 @@
     <div class="hero-text">
       <h1>Não é sorte,<br>é método!</h1>
       <p>Faça parte do grupo que domina os cassinos com inteligência. Nossa metodologia foi criada para que você aprenda a transformar falhas em lucros sólidos. Pare de tentar e comece a gerar resultados diários, de forma garantida e inteligente. Tudo isso operando em um mercado sem risco.</p>
-      <a href="#contato" class="btn-primary">Quero participar</a>
+      <a href="https://wa.me/5521989880489" class="btn-primary">Fale Conosco</a>
     </div>
     
     <!-- Imagem principal SEM LED -->
@@ -452,7 +581,7 @@
   </section>
 
   <section class="card-title-section">
-    <h2>ENTRE NO NOSSO GRUPO E SAIBA MAIS</h2>
+    <h2>SAIBA MAIS</h2>
     <div class="arrow-container">
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21L0 9h7V0h10v9h7L12 21z"/></svg>
       <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21L0 9h7V0h10v9h7L12 21z"/></svg>
@@ -466,38 +595,59 @@
         <div class="led-worm"></div>
       </div>
       <div class="card">
-        <img src="1.png" alt="Card 1">
-        <a href="#comprar">COMPRAR</a>
+        <div class="card-image-container">
+          <img src="1.png" alt="Card 1">
+          <!-- TEXTO DENTRO DA IMAGEM COM DESTAQUE NOS PREÇOS -->
+          <div class="image-text-inside">
+            <h3>BM MÉTODOS VIP</h3>
+            <p>DE <span class="old-price">279,90</span> POR</p>
+            <div class="new-price">APENAS 179,90 /À VISTA</div>
+            <button class="btn-inside">COMPRAR</button>
+          </div>
+        </div>
+        <div class="card-content"></div>
       </div>
     </div>
     
     <div class="card-container">
       <div class="card-led-ring">
-        <div class="led-worm" style="animation-delay: 0.5s;"></div>
+        <div class="led-worm"></div>
       </div>
       <div class="card">
-        <img src="2.png" alt="Card 2">
-        <a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">COMPRAR</a>
+        <div class="card-image-container">
+          <img src="2.png" alt="Card 2">
+        </div>
+        <div class="card-content">
+          <a href="https://chat.whatsapp.com/FtfJmtfEuy2HyUJknNNwL3?mode=ems_wa_c">COMPRAR</a>
+        </div>
       </div>
     </div>
     
     <div class="card-container">
       <div class="card-led-ring">
-        <div class="led-worm" style="animation-delay: 1s;"></div>
+        <div class="led-worm"></div>
       </div>
       <div class="card">
-        <img src="3.png" alt="Card 3">
-        <a href="https://discord.gg/JUMwbbdd">SABER MAIS</a>
+        <div class="card-image-container">
+          <img src="3.png" alt="Card 3">
+        </div>
+        <div class="card-content">
+          <a href="https://discord.gg/JUMwbbdd">SABER MAIS</a>
+        </div>
       </div>
     </div>
     
     <div class="card-container">
       <div class="card-led-ring">
-        <div class="led-worm" style="animation-delay: 1.5s;"></div>
+        <div class="led-worm"></div>
       </div>
       <div class="card">
-        <img src="5.png" alt="Card 4">
-        <a href="https://wa.me/5521989880489">SABER MAIS</a>
+        <div class="card-image-container">
+          <img src="5.png" alt="Card 4">
+        </div>
+        <div class="card-content">
+          <a href="https://wa.me/5521989880489">SABER MAIS</a>
+        </div>
       </div>
     </div>
   </section>
@@ -525,6 +675,12 @@
     });
   },{threshold:.2});
   document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+
+  // Adicionar funcionalidade ao botão dentro da imagem
+  document.querySelector('.btn-inside').addEventListener('click', function() {
+    alert('Redirecionando para a página de compra...');
+    // window.location.href = '#comprar';
+  });
 </script>
 </body>
 </html>
