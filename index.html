@@ -1,353 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Bio</title>
-  <style>
-    /* Fonte customizada */
-    @font-face {
-      font-family: 'Pricedown';
-      src: url('fonts/pricedown.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    body {
-      margin: 0;
-      background: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
-    }
-
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-
-    header button {
-      background: #000;
-      color: #fff;
-      border: 2px solid #8e2de2;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    header button:hover {
-      background: #8e2de2;
-      color: #000;
-    }
-
-    /* Seção hero */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 30px;
-
-      
-    }
-
-    .hero-text h1 {
-      font-family: 'Pricedown', Arial, sans-serif;
-      color: #fff;
-      font-size: 43px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .hero-text p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-    .hero-text .btn-red {
-      display: inline-block;
-      background: #8e2de2;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 30px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-
-    .hero-text .btn-red:hover {
-      background: darkred;
-    }
-    @keyframes brilhoLED {
-  from {
-    /* No início, a luminosidade é menor */
-    filter: brightness(100%) saturate(120%) drop-shadow(0 0 10px #8e2de2);
-  }
-  to {
-    /* No final, a luminosidade é maior */
-    filter: brightness(150%) saturate(180%) drop-shadow(0 0 20px #8e2de2);
-  }
-}
-
-    .hero img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      filter: brightness(120%) saturate(150%) drop-shadow(0 0 15px #8e2de2);
-      animation: brilhoLED 2s infinite alternate;
-    }
-
-    /* Layout Desktop */
-    @media(min-width: 900px) {
-      .hero {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
-      .hero-text {
-        flex: 1;
-        padding-right: 40px;
-      }
-      .hero img {
-        flex: 1;
-        max-width: 570px;
-      }
-      .hero-text h1 {
-      font-family: 'Pricedown', Arial, sans-serif;
-      color: #fff;
-      font-size: 70px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-
-    .hero-text p {
-      font-size: 22px;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-    .hero-text .btn-red {
-      display: inline-block;
-      background: #8e2de2;
-      color: #fff;
-      text-decoration: none;
-      padding: 22px 100px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-    }
-
-    /* Grid de cards */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    @media(min-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .card {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 12px;
-       border: 2px solid #8e2de2;
-    }
-
-    .card a {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(45deg, #8e2de2, #4a00e0);
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .card a:hover {
-      background: linear-gradient(45deg, #a445f7, #6c00ff);
-    }
-    /* NAVBAR ESTILOS */
-.navbar {
-  background-color: #000;
-  border-bottom: 1px solid #8e2de2;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-family: 'Pricedown', Arial, sans-serif;
-  font-size: 24px;
-  color: #8e2de2;
-  text-decoration: none;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-  color: #8e2de2;
-}
-
-.cta-button {
-  background-color: transparent;
-  border: 2px solid #8e2de2;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #8e2de2;
-  color: #000;
-}
-
-/* Responsivo */
-@media(max-width: 768px) {
-  .nav-links {
-    display: none;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Método BR</title>
+<style>
+  @font-face {
+    font-family: 'Clash_Regular';
+    src: url('fonts/clash.ttf') format('truetype');
+    font-weight: normal; font-style: normal;
+    font-display: swap;
   }
 
-  .cta-button {
-    font-size: 12px;
-    padding: 12px 16px;
-  }
-}
-
-.menu-icon {
-  font-size: 24px; /* menor ícone */
-}
-
-#menu-toggle {
-  display: none;
-}
-
-@media(max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: #000;
-    flex-direction: column;
-    align-items: center;
-    display: none;
+  :root{
+    --roxo:#8e2de2;
+    --roxo2:#4a00e0;
+    --preto:#000;
+    --branco:#fff;
+    --grad: linear-gradient(45deg, var(--roxo), var(--roxo2));
+    --radius:18px;
+    --shadow-glow:0 0 25px rgba(111, 79, 139, 0.6);
   }
 
-  #menu-toggle:checked + .menu-icon + .nav-links {
-    display: flex;
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#050007;
+    color:var(--branco);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
   }
 
-  .menu-icon {
-    display: block;
-  }
-}
+  a{text-decoration:none;color:inherit}
 
-  </style>
+  /* ================== NAVBAR ================== */
+  .navbar{
+    position:sticky;top:0;z-index:1000;
+    background:rgba(10,0,20,.4);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(142,45,226,.35);
+    transition:.3s;
+  }
+  .navbar.scrolled{background:rgba(10,0,20,.85);box-shadow:0 6px 25px rgba(0,0,0,.4)}
+  .nav-wrap{
+    max-width:1200px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:'Clash_Regular',sans-serif;font-size:28px;
+    color:var(--roxo);text-shadow:0 0 8px rgba(142,45,226,.6);
+  }
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{
+    font-weight:600;font-size:15px;opacity:.85;transition:.3s;
+    position:relative;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-4px;
+    width:0;height:2px;background:var(--grad);transition:.3s;
+  }
+  .nav-links a:hover{opacity:1}
+  .nav-links a:hover::after{width:100%}
+
+  /* Botão hamburguer */
+  .menu-toggle{
+    display:none;flex-direction:column;gap:5px;cursor:pointer;
+  }
+  .menu-toggle span{
+    width:26px;height:3px;background:var(--branco);border-radius:3px;
+    transition:.3s;
+  }
+  .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.active span:nth-child(2){opacity:0}
+  .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+  @media(max-width:768px){
+    .nav-links{
+      position:absolute;top:64px;left:0;right:0;
+      flex-direction:column;align-items:center;
+      background:rgba(10,0,20,.95);padding:20px 0;
+      display:none;
+    }
+    .nav-links.open{display:flex}
+    .menu-toggle{display:flex}
+  }
+
+  /* ================== HERO ================== */
+  .hero{
+    min-height:100vh;max-width:1200px;margin:0 auto;
+    padding:80px 24px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:40px;
+    position:relative;overflow:hidden;
+  }
+  .hero-text{display:grid;gap:24px;text-align:center}
+  .hero h1{
+    font-family:'Clash_Regular',sans-serif;
+    font-size:clamp(48px,6vw,88px);line-height:1.05;
+    text-transform:uppercase;letter-spacing:1px;
+    background:var(--grad);-webkit-background-clip:text;color:transparent;
+    text-shadow:0 0 22px rgba(142,45,226,.6);
+  }
+  .hero p{
+    font-size:clamp(18px,2vw,22px);max-width:720px;margin:0 auto;
+    opacity:.9;
+  }
+  .btn-primary{
+    display:inline-block;padding:14px 44px;border-radius:30px;
+    font-weight:800;font-size:18px;background:var(--grad);color:#fff;
+    box-shadow:var(--shadow-glow);position:relative;overflow:hidden;
+    transition:.3s;
+  }
+  .btn-primary:hover{transform:translateY(-2px) scale(1.03);filter:brightness(1.1)}
+  .btn-primary::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
+    transform:translateX(-100%);transition:.6s;
+  }
+  .btn-primary:hover::after{transform:translateX(100%)}
+  .hero-media{
+    width:100%;max-width:640px;
+    filter:drop-shadow(0 0 28px rgba(142,45,226,.6));
+    transition:transform .4s ease,filter .4s ease;
+  }
+  .hero-media:hover{transform:rotateZ(-.6deg) scale(1.02)}
+  @media(min-width:960px){
+    .hero{flex-direction:row;align-items:center;justify-content:space-between;text-align:left}
+    .hero-text{text-align:left}
+  }
+
+  /* ================== CARDS ================== */
+  .grid{
+    max-width:1200px;margin:80px auto;padding:0 24px;
+    display:grid;grid-template-columns:1fr;gap:32px;
+  }
+  @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
+  .card{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    background:#0c0616;box-shadow:0 8px 25px rgba(0,0,0,.45);
+    border:2px solid rgba(142,45,226,.35);
+    transform:translateY(30px);opacity:0;
+    transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease,border .3s ease;
+  }
+  .card:hover{box-shadow:0 14px 40px rgba(0,0,0,.6);border-color:var(--roxo)}
+  .card img{width:100%;display:block;border-radius:var(--radius)}
+  .card a{
+    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+    background:var(--grad);color:#fff;padding:12px 28px;border-radius:26px;
+    font-weight:700;font-size:14px;box-shadow:var(--shadow-glow);
+    transition:.3s;
+  }
+  .card a:hover{transform:translate(-50%,-3px) scale(1.05)}
+  .card.visible{transform:translateY(0);opacity:1}
+</style>
 </head>
 <body>
-<!-- NAVBAR RESPONSIVA -->
-<nav class="navbar">
-  <div class="navbar-container">
-    <a href="#" class="logo">Método BR</a>
-    <ul class="nav-links">
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Comprar</a></li>
-      <li><a href="#">Whatsapp</a></li>
-      <li><a href="#">Grupo gratuito</a></li>
-    </ul>
-    <a href="#" class="cta-button">Comprar agora</a>
-  </div>
-</nav>
-  <!-- NOVA SEÇÃO HERO -->
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="#" class="logo">Método BR</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#comprar">Comprar</a></li>
+        <li><a href="#whatsapp">Whatsapp</a></li>
+        <li><a href="#grupo">Grupo gratuito</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
-      <h1>Não é jogo,<br> é estratégia!</h1>
-      <p>Junte-se ao grupo que mais cresce no Brasil e veja como explorar brechas em cassinos pode gerar resultados de verdade.</p>
-      <a href="#" class="btn-red">Fale Conosco</a>
+      <h1>Não é sorte,<br>é método!</h1>
+      <p>Junte-se ao maior grupo de estratégias do Brasil e aprenda como transformar falhas em cassinos em lucros diários, de forma inteligente e comprovada.</p>
+      <a href="#contato" class="btn-primary">Quero participar</a>
     </div>
-    <img src="6.png" alt="Imagem destaque">
+    <img src="6.png" alt="Imagem destaque" class="hero-media">
   </section>
 
-  <!-- SEÇÃO DE CARDS -->
+  <!-- GRID DE CARDS -->
   <section class="grid">
-    <div class="card">
-      <img src="1.png" alt="Imagem 1">
-      <a href="#">COMPRAR</a>
-    </div>
-
-    <div class="card">
-      <img src="2.png" alt="Imagem 2">
-      <a href="#">COMPRAR</a>
-    </div>
-
-    <div class="card">
-      <img src="3.png" alt="Imagem 3">
-      <a href="#">SABER MAIS</a>
-    </div>
-
-    <div class="card">
-      <img src="5.png" alt="Imagem 4">
-      <a href="#">SABER MAIS</a>
-    </div>
+    <div class="card"><img src="1.png"><a href="#comprar">COMPRAR</a></div>
+    <div class="card"><img src="2.png"><a href="#comprar">COMPRAR</a></div>
+    <div class="card"><img src="3.png"><a href="#saiba">SABER MAIS</a></div>
+    <div class="card"><img src="5.png"><a href="#saiba">SABER MAIS</a></div>
   </section>
+
+<script>
+  // Navbar solid on scroll
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>10));
+
+  // Toggle menu mobile
+  const toggle=document.getElementById('menu-toggle');
+  const links=document.getElementById('nav-links');
+  toggle.addEventListener('click',()=>{
+    toggle.classList.toggle('active');
+    links.classList.toggle('open');
+  });
+
+  // Scroll reveal cards
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:.2});
+  document.querySelectorAll('.card').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
