@@ -74,9 +74,7 @@
     width: auto;
     transition: transform 0.3s ease;
   }
-  .logo:hover .logo-img {
-    transform: scale(1.1);
-  }
+  .logo:hover .logo-img {transform: scale(1.1);}
   .nav-links{
     display:flex;
     gap:28px;
@@ -118,9 +116,7 @@
     }
     .nav-links.open{display:flex}
     .menu-toggle{display:flex}
-    .logo {
-      margin-right: 0;
-    }
+    .logo {margin-right: 0;}
   }
 
   /* ================== HERO ================== */
@@ -140,20 +136,11 @@
     border-radius: 20px;
     transition: transform .4s ease, filter .4s ease;
   }
-
   @keyframes brilhoLED {
-    from {
-      filter: brightness(100%) saturate(90%) drop-shadow(0 0 10px var(--roxo));
-    }
-    to {
-      filter: brightness(120%) saturate(95%) drop-shadow(0 0 25px var(--roxo));
-    }
+    from {filter: brightness(100%) saturate(90%) drop-shadow(0 0 10px var(--roxo));}
+    to {filter: brightness(120%) saturate(95%) drop-shadow(0 0 25px var(--roxo));}
   }
-  
-  .hero-media:hover {
-    transform: rotateZ(-.6deg) scale(1.02);
-  }
-
+  .hero-media:hover {transform: rotateZ(-.6deg) scale(1.02);}
   .hero-text{display:grid;gap:24px;text-align:center}
   .hero h1 {
     font-family: 'Clash_Regular', sans-serif;
@@ -191,13 +178,12 @@
     .hero-text{text-align:left}
   }
 
-  /* ================== CARD TITLE SECTION ================== */
+  /* ================== CARD TITLE ================== */
   .card-title-section {
     text-align: center;
     margin-top: -60px; 
     margin-bottom: 30px;
   }
-
   .card-title-section h2 {
     font-family: 'Clash_Regular', sans-serif;
     font-size: clamp(24px, 4vw, 40px);
@@ -215,43 +201,31 @@
   }
   @media(min-width:768px){.grid{grid-template-columns:1fr 1fr}}
   
-  .card{
-    min-height: 240px;
-    position:relative;
-    border-radius:var(--radius);
-    overflow:hidden;
-    background:#0c0616;
-    box-shadow:0 8px 25px rgba(0,0,0,.45);
-    transform:translateY(30px);
-    opacity:0;
-    transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .card::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    background: var(--grad);
-    border-radius: var(--radius);
-    padding: 2px;
-    z-index: -1;
-    filter: blur(8px);
-    opacity: 0.5;
-    transition: opacity .3s ease, filter .3s ease;
-  }
-  .card:hover::before {opacity: 1;filter: blur(12px);}
+ .card{
+  min-height: 240px; /* 🔥 garante altura mínima */
+  position:relative;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:#0c0616;
+  box-shadow:0 8px 25px rgba(0,0,0,.45);
+  transform:translateY(30px);
+  opacity:0;
+  transition:transform .5s ease,box-shadow .3s ease,opacity .6s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
   .card:hover{box-shadow:0 14px 40px rgba(0,0,0,.6);}
-  
-  .card-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    flex: 1;
-    overflow: hidden;
-  }
+/* container da imagem respeita a altura mínima */
+.card-image-container {
+  position: relative;
+  width: 100%;
+  min-height: 240px;   /* 🔥 força o espaço da imagem */
+  flex: 1;
+  overflow: hidden;
+}
+
+
   .card img {
     width: 100%;
     height: 100%;
@@ -262,17 +236,15 @@
   }
   .card:hover img {transform: scale(1.05);}
   
-  /* Texto DENTRO da imagem */
   .image-text-inside {
     position: absolute;
-    top: 0;left: 0;right: 0;bottom: 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    z-index: 2;
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
   }
   .image-text-inside h3 {
@@ -303,7 +275,20 @@
     padding: 5px 15px;
     border-radius: 10px;
   }
-  .image-text-inside .btn-inside {
+  .new-price2 {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 0 1px var(--branco), 0 0 1px var(--branco);
+    margin: 5px 0 15px 0;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  .btn-inside {
     background: var(--grad);
     color: white;
     padding: 12px 30px;
@@ -316,40 +301,17 @@
     border: none;
     cursor: pointer;
   }
-  .image-text-inside .btn-inside:hover {
+  .btn-inside:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 25px rgba(142, 45, 226, 0.8);
   }
-  
-  .card-content {
-    padding: 15px 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .card a{
-    margin-top: auto;
-    margin-bottom: 18px;
-    left:50%;transform:translateX(-50%);
-    background:var(--grad);
-    color:#fff;padding:12px 28px;border-radius:26px;
-    font-weight:700;font-size:14px;
-    box-shadow:var(--shadow-glow);
-    transition:.3s;
-    width: max-content;position: relative;
-    text-align: center;
-    align-self: center;
-  }
-  .card a:hover{transform:translate(-50%,-3px) scale(1.05);}
   .card.visible{transform:translateY(0);opacity:1;}
-
-  /* REMOVE o espaço extra no primeiro card */
-  .grid .card:first-child .card-content {display: none;}
 </style>
 </head>
 <body>
   <div class="background-blur"></div>
 
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-wrap">
       <a href="#" class="logo"><img src="11.png" alt="Método BR" class="logo-img"></a>
@@ -364,6 +326,7 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <h1>Não é sorte,<br>é método!</h1>
@@ -373,10 +336,12 @@
     <img src="6.png" alt="Imagem destaque" class="hero-media">
   </section>
 
+  <!-- TITLE -->
   <section class="card-title-section">
     <h2>SAIBA MAIS</h2>
   </section>
 
+  <!-- GRID -->
   <section class="grid">
     <!-- CARD 1 -->
     <div class="card">
@@ -386,25 +351,42 @@
           <h3>BM MÉTODOS VIP</h3>
           <p>DE <span class="old-price">279,90</span> POR</p>
           <div class="new-price">APENAS 179,90 / A VISTA</div>
-          <button class="btn-inside">COMPRAR</button>
+          <button class="btn-inside">ADQUIRIR AGORA</button>
         </div>
       </div>
-      <div class="card-content"></div>
     </div>
     <!-- CARD 2 -->
     <div class="card">
-      <div class="card-image-container"><img src="2.png" alt="Card 2"></div>
-      <div class="card-content"><a href="#">COMPRAR</a></div>
+      <div class="card-image-container">
+        <img src="2.png" alt="Card 2">
+        <div class="image-text-inside">
+          <h3>BM MÉTODOS FREE</h3>
+          <div class="new-price2">TENHA ACESSO A CONTEÚDOS 100% GRATUITOS, ENTRE NO GRUPO E E TENHA A OPORTUNIDADE DE LUCRAR GRATUITAMENTE</div>
+          <button class="btn-inside">ADQUIRIR AGORA</button>
+        </div>
+      </div>
     </div>
     <!-- CARD 3 -->
     <div class="card">
-      <div class="card-image-container"><img src="3.png" alt="Card 3"></div>
-      <div class="card-content"><a href="#">SABER MAIS</a></div>
+      <div class="card-image-container">
+        <img src="3.png" alt="Card 2">
+        <div class="image-text-inside">
+          <h3>BM MÉTODOS DISCORD</h3>
+          <div class="new-price2">TENHA ACESSO A UMA COMUNIDADE TOTALMENTE ENGANJADA AO MUNDO DOS MÉTODOS</div>
+          <button class="btn-inside">ADQUIRIR AGORA</button>
+        </div>
+      </div>
     </div>
     <!-- CARD 4 -->
     <div class="card">
-      <div class="card-image-container"><img src="5.png" alt="Card 4"></div>
-      <div class="card-content"><a href="#">SABER MAIS</a></div>
+      <div class="card-image-container">
+        <img src="5.png" alt="Card 2">
+        <div class="image-text-inside">
+          <h3>BM MÉTODOS SUPORTE</h3>
+          <div class="new-price2">TENHA ACESSO A UM SUPORTE 24/7</div>
+          <button class="btn-inside">ADQUIRIR AGORA</button>
+        </div>
+      </div>
     </div>
   </section>
 
