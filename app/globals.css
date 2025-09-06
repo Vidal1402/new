@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Atualizando para paleta elegante e minimalista da corretora */
+  --background: #ffffff; /* Main background */
+  --foreground: #374151; /* Text */
+  --card: #e5d6c4; /* Card background */
+  --card-foreground: #374151; /* Card text */
+  --popover: #f9f9f9; /* Popover background */
+  --popover-foreground: #374151; /* Popover text */
+  --primary: #d4c69a; /* Call-to-action buttons */
+  --primary-foreground: #ffffff; /* Button text */
+  --secondary: #e5d6c4; /* Secondary elements */
+  --secondary-foreground: #374151; /* Secondary text */
+  --muted: #f9f9f9; /* Muted background */
+  --muted-foreground: #b0b0b0; /* Muted text */
+  --accent: #d4c69a; /* Accent elements */
+  --accent-foreground: #ffffff; /* Accent text */
+  --destructive: #dc2626; /* Error elements */
+  --destructive-foreground: #ffffff; /* Error text */
+  --border: #e5e7eb; /* Borders */
+  --input: #ffffff; /* Input fields */
+  --ring: rgba(212, 198, 154, 0.5); /* Focus ring */
+  --radius: 0.5rem; /* Corner rounding */
+  --sidebar: #ffffff; /* Sidebar background */
+  --sidebar-foreground: #374151; /* Sidebar text */
+  --sidebar-primary: #e5d6c4; /* Primary sidebar color */
+  --sidebar-primary-foreground: #374151; /* Primary sidebar text */
+  --sidebar-accent: #d4c69a; /* Sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* Sidebar accent text */
+  --sidebar-border: #e5e7eb; /* Sidebar borders */
+  --sidebar-ring: rgba(212, 198, 154, 0.5); /* Sidebar focus ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-open-sans);
+  --font-serif: var(--font-montserrat);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--primary);
+  --color-chart-2: var(--secondary);
+  --color-chart-3: var(--accent);
+  --color-chart-4: var(--muted);
+  --color-chart-5: var(--foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
