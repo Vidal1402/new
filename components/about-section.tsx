@@ -8,12 +8,12 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <h2 className="font-serif font-black text-4xl md:text-5xl mb-6 text-balance text-foreground">
-              Conheça <span className="text-primary">Marta Vidal</span>
+              Conheça <span className="text-primary">Guilherme Vidal</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Especialista em imóveis de alto padrão com mais de 15 anos de experiência no mercado imobiliário. Minha
-              missão é conectar pessoas aos seus lares dos sonhos através de um atendimento personalizado e consultoria
-              exclusiva.
+              Especialista em imóveis de alto padrão com mais de 15 anos de experiência no mercado imobiliário. Meu
+              objetivo é conectar pessoas aos seus lares dos sonhos através de um atendimento personalizado e
+              consultoria exclusiva.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -46,8 +46,8 @@ export function AboutSection() {
           <div className="relative order-1 lg:order-2">
             <div className="relative overflow-hidden rounded-lg shadow-2xl">
               <img
-                src="/marta-vidal-professional.png"
-                alt="Marta Vidal - Consultora Imobiliária"
+                src="/guilherme-vidal-professional.png"
+                alt="Guilherme Vidal - Consultor Imobiliário"
                 className="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 to-transparent rounded-lg" />
@@ -60,7 +60,7 @@ export function AboutSection() {
             <CardContent className="p-8">
               <Award className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="font-serif font-semibold mb-2 text-card-foreground">Expertise Comprovada</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">Reconhecida no mercado de imóveis de luxo</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Reconhecido no mercado de imóveis de luxo</p>
             </CardContent>
           </Card>
 

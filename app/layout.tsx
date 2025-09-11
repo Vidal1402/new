@@ -19,7 +19,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Marta Vidal - Consultoria Imobiliária | Imóveis de Alto Padrão",
+  title: "Guilherme Vidal - Consultoria Imobiliária | Imóveis de Alto Padrão",
   description:
     "Conectando você ao imóvel perfeito. Especialista em imóveis de alto padrão com atendimento personalizado e consultoria exclusiva.",
   generator: "v0.app",

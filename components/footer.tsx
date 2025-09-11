@@ -10,7 +10,7 @@ export function Footer() {
             <div className="flex items-center gap-4 mb-6">
               <Home className="h-10 w-10 text-primary" />
               <div>
-                <h3 className="font-serif font-bold text-2xl text-foreground">Marta Vidal</h3>
+                <h3 className="font-serif font-bold text-2xl text-foreground">Guilherme Vidal</h3>
                 <p className="text-primary font-medium">Consultoria Imobiliária</p>
               </div>
             </div>
@@ -36,7 +36,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#sobre" className="hover:text-primary transition-colors text-lg">
-                  Sobre Marta
+                  Sobre Guilherme
                 </a>
               </li>
               <li>
@@ -86,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/30 mt-12 pt-8 text-center text-muted-foreground">
-          <p className="text-lg">&copy; 2024 Marta Vidal Consultoria Imobiliária. Todos os direitos reservados.</p>
+          <p className="text-lg">&copy; 2024 Guilherme Vidal Consultoria Imobiliária. Todos os direitos reservados.</p>
           <p className="text-sm mt-2">CRECI/SP 123.456-F | CNPJ: 12.345.678/0001-90</p>
         </div>
       </div>

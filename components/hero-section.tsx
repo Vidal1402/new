@@ -17,7 +17,7 @@ export function HeroSection() {
         <div className="max-w-5xl">
           <div className="mb-12">
             <h1 className="font-serif font-black text-5xl md:text-7xl lg:text-8xl mb-6 text-balance text-foreground leading-tight">
-              Marta Vidal
+              Guilherme Vidal
             </h1>
             <p className="text-2xl md:text-3xl lg:text-4xl text-primary font-light tracking-wide">
               Consultoria Imobiliária
