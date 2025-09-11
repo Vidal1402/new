@@ -4,33 +4,33 @@
 :root {
   /* Atualizando para paleta elegante e minimalista da corretora */
   --background: #ffffff; /* Main background */
-  --foreground: #374151; /* Text */
-  --card: #e5d6c4; /* Card background */
-  --card-foreground: #374151; /* Card text */
-  --popover: #f9f9f9; /* Popover background */
-  --popover-foreground: #374151; /* Popover text */
-  --primary: #d4c69a; /* Call-to-action buttons */
+  --foreground: #1f2937; /* Text - mais escuro para melhor legibilidade */
+  --card: #f8f9fa; /* Card background - mais sutil */
+  --card-foreground: #1f2937; /* Card text - mais escuro */
+  --popover: #ffffff; /* Popover background */
+  --popover-foreground: #1f2937; /* Popover text */
+  --primary: #c19a6b; /* Call-to-action buttons - dourado mais forte */
   --primary-foreground: #ffffff; /* Button text */
-  --secondary: #e5d6c4; /* Secondary elements */
-  --secondary-foreground: #374151; /* Secondary text */
-  --muted: #f9f9f9; /* Muted background */
-  --muted-foreground: #b0b0b0; /* Muted text */
-  --accent: #d4c69a; /* Accent elements */
+  --secondary: #f3f4f6; /* Secondary elements - cinza mais claro */
+  --secondary-foreground: #1f2937; /* Secondary text */
+  --muted: #f9fafb; /* Muted background */
+  --muted-foreground: #6b7280; /* Muted text - melhor contraste */
+  --accent: #c19a6b; /* Accent elements */
   --accent-foreground: #ffffff; /* Accent text */
   --destructive: #dc2626; /* Error elements */
   --destructive-foreground: #ffffff; /* Error text */
   --border: #e5e7eb; /* Borders */
   --input: #ffffff; /* Input fields */
-  --ring: rgba(212, 198, 154, 0.5); /* Focus ring */
-  --radius: 0.5rem; /* Corner rounding */
+  --ring: rgba(193, 154, 107, 0.3); /* Focus ring */
+  --radius: 0.75rem; /* Corner rounding - mais arredondado */
   --sidebar: #ffffff; /* Sidebar background */
-  --sidebar-foreground: #374151; /* Sidebar text */
-  --sidebar-primary: #e5d6c4; /* Primary sidebar color */
-  --sidebar-primary-foreground: #374151; /* Primary sidebar text */
-  --sidebar-accent: #d4c69a; /* Sidebar accent */
+  --sidebar-foreground: #1f2937; /* Sidebar text */
+  --sidebar-primary: #f3f4f6; /* Primary sidebar color */
+  --sidebar-primary-foreground: #1f2937; /* Primary sidebar text */
+  --sidebar-accent: #c19a6b; /* Sidebar accent */
   --sidebar-accent-foreground: #ffffff; /* Sidebar accent text */
   --sidebar-border: #e5e7eb; /* Sidebar borders */
-  --sidebar-ring: rgba(212, 198, 154, 0.5); /* Sidebar focus ring */
+  --sidebar-ring: rgba(193, 154, 107, 0.3); /* Sidebar focus ring */
 }
 
 @theme inline {
@@ -81,5 +81,49 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    /* Melhorando tipografia base */
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* Adicionando estilos para melhor hierarquia tipográfica */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold;
+    line-height: 1.2;
+    color: var(--foreground);
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    line-height: 1.7;
+    color: var(--foreground);
+  }
+
+  /* Melhorando legibilidade de links */
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--accent);
   }
 }

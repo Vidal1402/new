@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat, Open_Sans } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -35,7 +34,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`font-sans ${openSans.variable} ${montserrat.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+        {/* Analytics component removed due to error */}
       </body>
     </html>
   )

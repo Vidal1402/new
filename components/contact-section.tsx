@@ -2,112 +2,118 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, MessageSquare, Shield } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, MessageSquare, Home } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <section id="contato" className="py-20 bg-muted/30 relative">
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-10 hidden lg:block">
-        <img src="/casino-skeleton-delay.png" alt="BM Métodos" className="w-64 h-auto" />
+    <section id="contato" className="py-24 bg-muted/20 relative">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 hidden lg:block">
+        <Home className="w-64 h-64 text-primary" />
       </div>
 
-      <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-16">
-          <h2 className="font-sans font-bold text-4xl mb-4">
-            Solicite uma <span className="text-primary">Auditoria</span>
+      <div className="container mx-auto px-6 lg:px-8 relative">
+        <div className="text-center mb-20">
+          <h2 className="font-serif font-bold text-4xl md:text-5xl mb-6">
+            Entre em <span className="text-primary">Contato</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proteja seu cassino contra vulnerabilidades. Entre em contato conosco e solicite uma análise completa dos
-            seus sistemas.
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Pronto para encontrar o imóvel dos seus sonhos? Entre em contato conosco e agende uma consultoria
+            personalizada e exclusiva.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
-          <Card className="border-primary/20">
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <MessageSquare className="h-6 w-6 text-primary" />
-                <CardTitle className="font-sans text-2xl">Solicitar Consultoria</CardTitle>
+          <Card className="border-primary/30 shadow-xl bg-card/80 backdrop-blur-sm">
+            <CardHeader className="pb-8">
+              <div className="flex items-center gap-4">
+                <MessageSquare className="h-8 w-8 text-primary" />
+                <CardTitle className="font-serif text-2xl md:text-3xl">Agende sua Consultoria</CardTitle>
               </div>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Input placeholder="Nome do responsável" />
-                <Input placeholder="Email corporativo" type="email" />
+                <Input placeholder="Seu nome completo" className="h-12" />
+                <Input placeholder="Seu melhor email" type="email" className="h-12" />
               </div>
-              <Input placeholder="Telefone" />
-              <Input placeholder="Nome do cassino/empresa" />
-              <Textarea placeholder="Descreva seu sistema e necessidades de segurança..." rows={5} />
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-lg py-3">
-                <Shield className="h-5 w-5 mr-2" />
-                Solicitar Auditoria
+              <Input placeholder="Telefone/WhatsApp" className="h-12" />
+              <Input placeholder="Tipo de imóvel desejado" className="h-12" />
+              <Textarea
+                placeholder="Conte-nos sobre suas preferências: localização, tamanho, orçamento, características especiais..."
+                rows={5}
+                className="resize-none"
+              />
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <Home className="h-5 w-5 mr-2" />
+                Solicitar Consultoria Gratuita
               </Button>
             </CardContent>
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <MapPin className="h-6 w-6 text-primary mt-1" />
+          <div className="space-y-8">
+            <Card className="border-primary/30 shadow-lg bg-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6">
+                  <MapPin className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Localização</h3>
-                    <p className="text-muted-foreground">
-                      Av. Paulista, 1000 - Conjunto 2001
+                    <h3 className="font-serif font-semibold text-xl mb-3">Escritório</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      Av. Brigadeiro Faria Lima, 3144 - Conjunto 1201
                       <br />
-                      Bela Vista - São Paulo/SP
+                      Itaim Bibi - São Paulo/SP
                       <br />
-                      CEP: 01310-100
+                      CEP: 01451-000
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <Phone className="h-6 w-6 text-primary mt-1" />
+            <Card className="border-primary/30 shadow-lg bg-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6">
+                  <Phone className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Contato Direto</h3>
-                    <p className="text-muted-foreground">
-                      (11) 3000-1234 (Comercial)
+                    <h3 className="font-serif font-semibold text-xl mb-3">Telefones</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      (11) 3045-7890 (Escritório)
                       <br />
-                      (11) 99999-8888 (Emergências 24h)
+                      (11) 99876-5432 (WhatsApp)
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <Mail className="h-6 w-6 text-primary mt-1" />
+            <Card className="border-primary/30 shadow-lg bg-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6">
+                  <Mail className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Email</h3>
-                    <p className="text-muted-foreground">
-                      contato@bmmetodos.com.br
+                    <h3 className="font-serif font-semibold text-xl mb-3">Email</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      contato@martavidal.com.br
                       <br />
-                      <span className="text-accent font-medium">emergencia@bmmetodos.com.br</span>
+                      <span className="text-primary font-medium">marta@martavidal.com.br</span>
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <Clock className="h-6 w-6 text-primary mt-1" />
+            <Card className="border-primary/30 shadow-lg bg-card/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6">
+                  <Clock className="h-8 w-8 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Atendimento</h3>
-                    <p className="text-muted-foreground">
-                      Segunda a Sexta: 8h às 20h
+                    <h3 className="font-serif font-semibold text-xl mb-3">Atendimento</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      Segunda a Sexta: 9h às 19h
                       <br />
-                      <span className="text-accent font-medium">Suporte 24/7 para emergências</span>
+                      Sábados: 9h às 14h
+                      <br />
+                      <span className="text-primary font-medium">Visitas agendadas aos finais de semana</span>
                     </p>
                   </div>
                 </div>
